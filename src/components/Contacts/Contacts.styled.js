@@ -15,4 +15,17 @@ font-weight: normal;
 font-size: 24px;
 `;
 
+export const Text = styled.p`
+margin-left: 10px;
+font-weight: normal;
+font-size: 24px;
+`;
+
+export const Error = styled.p`
+margin-left: 10px;
+font-weight: normal;
+font-size: 18px;
+color: red;
+`
+
 

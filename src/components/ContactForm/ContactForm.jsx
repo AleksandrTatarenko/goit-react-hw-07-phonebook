@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getContacts } from "redux/selectors";
-import { addContact } from "redux/contactsSlice";
+import { selectContacts } from "redux/selectors";
+import { addContact } from "redux/operations";
 import { Container, Form, Label, Input, Button } from "components/ContactForm/ContactForm.styled";
 import Notiflix from 'notiflix';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,8 +21,8 @@ export const ContactForm = () => {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
+    <Container onSubmit={handleSubmit}>
+      <Form>
         <Label>
           Name <Input
             type="text"
