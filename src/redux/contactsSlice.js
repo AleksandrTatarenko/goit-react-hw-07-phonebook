@@ -20,7 +20,10 @@ const contactsSlice = createSlice({
         [fetchContacts.pending]: handlePending,
         [addContact.pending]: handlePending,
         [deleteContact.pending]: handlePending,
-        [fetchContacts.fulfilled](state, action) {
+        [fetchContacts.rejected]: handleRejected,
+        [addContact.rejected]: handleRejected,
+        [deleteContact.rejected]: handleRejected,
+          [fetchContacts.fulfilled](state, action) {
             state.isLoading = false;
             state.error = null;
             state.contacts = action.payload;
@@ -38,12 +41,7 @@ const contactsSlice = createSlice({
             );
             state.contacts.splice(index, 1);  
         },
-        [fetchContacts.rejected]: handleRejected,
-        [addContact.rejected]: handleRejected,
-        [deleteContact.rejected]: handleRejected,
     },
 });
-
-// export const { addContact, deleteContact, fetchingInProgress, fetchingSuccess, fetchingError } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;

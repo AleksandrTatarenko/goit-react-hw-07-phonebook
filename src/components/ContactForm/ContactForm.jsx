@@ -16,7 +16,11 @@ export const ContactForm = () => {
     if (isIncludeContact.includes(true)) {
       return Notiflix.Notify.warning(`${form.name.value} is already in contacts`);
     }
-    dispatch(addContact(form.name.value, form.number.value));
+    const contact = {
+      name: form.name.value,
+      phone: form.number.value
+    }
+    dispatch(addContact(contact));
     form.reset();
   }
 
